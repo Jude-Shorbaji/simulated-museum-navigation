@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+<world name="museum_world">
+<!--scene settings-->
+<scene>
+    <ambient>1 1 1 1</ambient> <!--sets the miniimum light everywhere-->
+    <background>0.7 0.7 0.7 1</background> <!--sets the background color-->
+</scene>
+<!--additional lighting-->
+<light type="directional" name="sun">
+    <pos>0 0 10 0 0 0</pos><!--x,y,z,rotx,roty,rotz-->
+    <diffuse>1 1 1 1</diffuse>
+    <specular>0.3 0.3 0.3 1</specular>
+    <direction>-0.5 0.5 -1</direction>
+</light>
+<!--ground plane-->
+<model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!--addition of premade museum model-->
+    <include>
+      <uri>https://assets.leetrobotics.com/1.0/leetrobotics/models/iscas_museum</uri>
+      <name>iscas-museum</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+
+</world>
+</sdf>
